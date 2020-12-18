@@ -22,7 +22,21 @@ The author consulted the following resources when building this tutorial:
 - [Additional Resources](#additional-resources)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
-# SQL Query Syntax
+# Data
+
+Database_Lab_Data.xlsx
+
+Player_Birthplaces.csv
+
+Team_Locations.csv
+
+Combined_Transactions.csv
+
+Zip in the GitHub
+
+Google Drive link (ND users only) https://drive.google.com/drive/folders/1uzjZt4fxTa7qmAIfeTyKNtzT94rhZrf8?usp=sharing
+
+# SQL
 
 As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "Structured Query Language, or SQL (sometimes pronounced 'sequel'), is a powerful language used to interrogate and manipulate relational databases. It is not a general programming language that you can use to write an entire program."
 
@@ -32,7 +46,9 @@ As described in Library Carpentry's [Introduction to SQL tutorial](https://libra
 
 This section of the lab will introduce some basic elements of SQL syntax. 
 
-## Selecting and Sorting
+BASIC SQL STATEMENT SYNTAX https://www.w3schools.com/sql/sql_syntax.asp
+
+# Selecting and Sorting
 ```SQL
 SELECT [field]
 FROM [table];
@@ -92,7 +108,7 @@ ORDER BY [field_1] ASC, [field_2] DESC;
 
 <blockquote>Q23: Write an SQL query to return the data from the Player_Birthplaces table, sorted in chronological order by birth year and reverse alphabetical order by country? What data does this query return?</blockquote>
 
-## Filtering
+# Filtering
 
 109- Sometimes we may only want to return values that fall within a specific range or based on a particular set of conditions.
 
@@ -126,13 +142,19 @@ List of operators that can be used in a `WHERE` clause (from W3Schools [SQL Wher
 
 Learn more about operators at Beginner SQL's [Tutorial on SQL Comparison Keywords](https://beginner-sql-tutorial.com/sql-like-in-operators.htm).
 
-## Aggregating and Calculating
+# Aggregating and Calculating
+
+ADD MORE HERE
 
 We won't cover these functions in this lab, but SQL syntax includes functions that can group query results by particular fields and perform basic arithmetic functions on values in a database.
 
 To learn more, visit Library Carpentry's [Aggregating & calculating values page](https://librarycarpentry.org/lc-sql/04-aggregating-calculating/index.html) and W3Schools' [SQL Tutorial](https://www.w3schools.com/sql/default.asp) pages for specific aggregating and calculating functions.
 
-## Joins
+# Ordering and Commenting
+
+ADD MORE HERE
+
+# Joins
 
 115- The process of building a relational database in which you identify primary and foreign keys and build relationships across  tables does not change the underlying data structure.
 
@@ -174,6 +196,10 @@ Image credit: C.L. Moffatt, ["Visual  Representations of SQL Joins"](https://www
 SOME EXCERCISES THAT JOIN OUR TABLES
 
 Learn more about `JOIN` functions at W3Schools' [SQL Joins page](https://www.w3schools.com/sql/sql_join.asp).
+
+# Saving Queries
+
+# Final questions
 
 <blockquote>Q26: Write an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Indiana</blockquote>
 
