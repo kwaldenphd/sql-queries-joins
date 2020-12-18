@@ -26,7 +26,7 @@ The author consulted the following resources when building this tutorial:
 
 As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "Structured Query Language, or SQL (sometimes pronounced 'sequel'), is a powerful language used to interrogate and manipulate relational databases. It is not a general programming language that you can use to write an entire program."
 
-When working in a relational database, we an use SQL to write queries.
+When working in a relational database, we can use SQL to write queries.
 
 As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "a query is a question or request for data. For example, “How many journals does our library subscribe to?” When we query a database, we can ask the same question using a common language called Structured Query Language or SQL in what is called a statement. Some of the most useful queries - the ones we are introducing in this first section - are used to return results from a table that match specific criteria."
 
@@ -49,7 +49,7 @@ SELECT [field_1], [field_2], [field_3]
 FROM [table];
 ```
 
-<blockquote>Q20: How would you write an SQL query to select the list of player ids and birthplace countries from the Player_Birthplaces table? What data does this query return?</blockquote>
+<blockquote>Q20: Write an SQL query to select the list of player ids and birthplace countries from the Player_Birthplaces table? What data does this query return?</blockquote>
 
 100- We might want to write a query to return all the unique values in a particular field.
 
@@ -62,7 +62,7 @@ FROM [table];
 
 102- `SELECT DISTINCT` returns a list of unique values.
 
-<blockquote>Q21: How would you write an SQL query to return the unique list of player birthplace countries from the Player_Birthplaces table? What data does this query return?</blockquote>
+<blockquote>Q21: Write an SQL query to return the unique list of player birthplace countries from the Player_Birthplaces table? What data does this query return?</blockquote>
 
 103- We might also want to sort the results returned by a query.
 
@@ -78,7 +78,7 @@ ORDER BY [field] ASC;
 
 106- `ASC` returns ascending results. `DESC` would return descending results.
 
-<blockquote>Q22: How would you write an SQL query to return the unique list of team names from the Team_Locations table, sorted in reverse alphabetical order? What data does this query return?</blockquote>
+<blockquote>Q22: Write an SQL query to return the unique list of team names from the Team_Locations table, sorted in reverse alphabetical order? What data does this query return?</blockquote>
 
 ```SQL
 SELECT *
@@ -90,7 +90,7 @@ ORDER BY [field_1] ASC, [field_2] DESC;
 
 108- In the query above, the `ORDER BY` statement sorts `[field_1]` first (ascending) and then sorts `[field_2]` (descending).
 
-<blockquote>Q23: How would you write an SQL query to return the data from the Player_Birthplaces table, sorted in chronological order by birth year and reverse alphabetical order by country? What data does this query return?</blockquote>
+<blockquote>Q23: Write an SQL query to return the data from the Player_Birthplaces table, sorted in chronological order by birth year and reverse alphabetical order by country? What data does this query return?</blockquote>
 
 ## Filtering
 
@@ -122,7 +122,7 @@ List of operators that can be used in a `WHERE` clause (from W3Schools [SQL Wher
 
 114- SQL query syntax requires single quotes around text values. Numeric fields do not need single quotes.
 
-<blockquote>Q24: How would you write an SQL query to return the data from the Team_Locations table for teams located in states that start with the letter M? What data does this query return?</blockquote>
+<blockquote>Q24: Write an SQL query to return the data from the Team_Locations table for teams located in states that start with the letter M? What data does this query return?</blockquote>
 
 Learn more about operators at Beginner SQL's [Tutorial on SQL Comparison Keywords](https://beginner-sql-tutorial.com/sql-like-in-operators.htm).
 
@@ -155,79 +155,64 @@ ON transactions.player_ids = player_birthplaces.player_ids;
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_43.gif?raw=true" alt="Capture_2"  /></p>
 
+FIGURE 1
+
+Image credit: [Tweet by Hiroaki Yutani](https://twitter.com/yutannihilation/status/551572539697143808?s=20) @yutannihilation (3 January 2015)
+
 120- There are four main types of `JOIN` functions.
 - `(INNER) JOIN` returns matching records in both tables
 - `LEFT (OUTER) JOIN` returns all records from the left table and only matching records from the right table
 - `RIGHT (OUTER) JOIN` returns all records from the right table and only matching records from the left table
 - `FULL (OUTER) JOIN` returns all matching records from both the left and right tables
 
+We can express these `JOIN` functions programmatically in SQL.
+
+FIGURE 2
+
+Image credit: C.L. Moffatt, ["Visual  Representations of SQL Joins"](https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins) *Code Project* (3 February 2009).
+
+SOME EXCERCISES THAT JOIN OUR TABLES
+
 Learn more about `JOIN` functions at W3Schools' [SQL Joins page](https://www.w3schools.com/sql/sql_join.asp).
 
-<blockquote>Q26: Where would you start in writing an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Iowa?</blockquote>
+<blockquote>Q26: Write an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Indiana</blockquote>
 
-<blockquote>Q27: How would you describe the affordances of relational databases to someone who hasn't been through this lab?</blockquote>
+<blockquote>Q27: How would you describe the affordances of relational databases to someone who hasn't been through these labs?</blockquote>
 
 <blockquote>Q28: What questions or thoughts do you have about building and interacting with relational databases?</blockquote>
 
-# Optional: Relational Databases in Excel Using PivotTables
+# Thursday interactive prompt
 
-121- We can also work within Microsoft Excel to connect our three tables so we can utilize some of the features and functionality of a relational database from within Excel.
+Select one of the following SQL statements:
+- `AND/OR`
+- `ALTER TABLE`
+- `BETWEEN`
+- `CREATE`
+- `DELETE`
+- `DROP`
+- `EXISTS`
+- `GROUP BY`
+- `HAVING`
+- `IN`
+- `INSERT`
+- `JOIN`
+- `ORDER BY`
+- `SELECT`
+- `WHERE`
 
-122- Open the Excel workbook you created earlier in this lab.
+Write a brief explanation for what the statement will do.
 
-123- Load the `Transactions` file in a new sheet. 
+Include an example of how you would use the statement in an SQL query.
 
-124- Now you should have three sheets in the same Excel workbook.
+Resources:
+- https://www.w3schools.com/sql/sql_quickref.asp
+- https://www.w3schools.com/sql/sql_syntax.asp
 
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_33.png?raw=true" alt="Capture_2"  /></p>
+# Project Prompts
 
-125- Under the `Data` menu area, select the `Relationships` option.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_34.png?raw=true" alt="Capture_2"  /></p>
-
-126- In the `Manage Relationships` window, select `New`.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_35.png?raw=true" alt="Capture_2"  /></p>
-
-127- Use the relational schema you built in Q19 to create relationships across the three tables.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_36.png?raw=true" alt="Capture_2"  /></p>
-
-128- Once you've added relationships, close the `Manage Relationships` window.
-
-129- Save your workbook.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_37.png?raw=true" alt="Capture_2"  /></p>
-
-130- Select the `Manage Data Model` option under `Data`.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_38.png?raw=true" alt="Capture_2"  /></p>
-
-131- You can select the `Diagram View` option to see the relational schema you have built in Excel.
-
-132- Close the Power Pivot window.
-
-133- Create a new blank sheet.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_39.png?raw=true" alt="Capture_2"  /></p>
-
-134- Select `PivotTable` under `Insert`.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_40.png?raw=true" alt="Capture_2"  /></p>
-
-135- In the `Create PivotTable` window, select the option to `Use this workbook's Data Model` and select the `Existing Worksheet` for the PivotTable location.
-
-136- Click `OK`.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_41.png?raw=true" alt="Capture_2"  /></p>
-
-137- You are now in the PivotTable interface where you can select data fields across tables using the relationships and data model.
-
-<blockquote>From within the PivotTable, how could you select data fields to answer our question about the number of baseball players born in Puerto Rico who played for teams in Iowa? Describe your process and include a screenshot of the resulting PivotTable.</blockquote>
+dsfj kdasfjfdfk
 
 # Additional Resources
-
-- [W3 Schools "Syntax"](https://www.w3schools.com/sql/default.asp)
 - [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
 - [Library Carpentry "Tidy Data for Librarians"](https://librarycarpentry.org/lc-spreadsheets/)
 - [Library Carpentry "Database Design"](https://librarycarpentry.org/lc-sql/08-database-design/index.html)
