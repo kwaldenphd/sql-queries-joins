@@ -36,7 +36,7 @@ Zip in the GitHub
 
 Google Drive link (ND users only) https://drive.google.com/drive/folders/1uzjZt4fxTa7qmAIfeTyKNtzT94rhZrf8?usp=sharing
 
-# SQL
+# SQL Syntax
 
 As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "Structured Query Language, or SQL (sometimes pronounced 'sequel'), is a powerful language used to interrogate and manipulate relational databases. It is not a general programming language that you can use to write an entire program."
 
@@ -48,7 +48,7 @@ This section of the lab will introduce some basic elements of SQL syntax.
 
 BASIC SQL STATEMENT SYNTAX https://www.w3schools.com/sql/sql_syntax.asp
 
-# Selecting and Sorting
+## Selecting
 ```SQL
 SELECT [field]
 FROM [table];
@@ -80,6 +80,21 @@ FROM [table];
 
 <blockquote>Q21: Write an SQL query to return the unique list of player birthplace countries from the Player_Birthplaces table? What data does this query return?</blockquote>
 
+## SQL has a number of wildcard operators that (like regular expressions, or regex commands) can be useful to substitute one or more characters in a string.
+
+Symbol | Description | Example
+--- | --- |---
+`*` | Represents zero or more characters | `bl*` returns bl, black, blue, and blob
+`?` | Represents a single character | `h?t` returns hot, hat, and hit
+`[]` | Represents any single character within the brackets | `h[oa]t` returns hot and hat, but not hit
+`?` | Represents any character not in the brackets | `h[?oa]t` returns hit, but not hot and hat
+`-` | Represents a range of characters | `c[a-b]t` finds cat and cbt
+`#` | Represents any single numeric character | `2#5` returns 205, 215, 225, 235, 245, 255, 265, 275, 285, and 295
+
+<blockquote>Check out W3Schools <a href="https://www.w3schools.com/sql/sql_wildcards.asp">"SQL Wildcards"</a> for more on wildcard characters in SQL.</blockquote>
+
+## Sorting
+
 103- We might also want to sort the results returned by a query.
 
 ```SQL
@@ -108,19 +123,35 @@ ORDER BY [field_1] ASC, [field_2] DESC;
 
 <blockquote>Q23: Write an SQL query to return the data from the Player_Birthplaces table, sorted in chronological order by birth year and reverse alphabetical order by country? What data does this query return?</blockquote>
 
-# Filtering
+## Filtering
 
 109- Sometimes we may only want to return values that fall within a specific range or based on a particular set of conditions.
 
 ```SQL
 SELECT *
-FROM [Player_Birthplaces]
+FROM Player_Birthplaces
 WHERE country='DO';
 ```
 
 110- This query returns all columns from the `Player_Birthplaces` table where data in the `country` field is equal to `DO`.
 
 111- The data returned by this query includes all the records for players born in the Dominican Republic.
+
+Other comparison operators in SQL include:
+
+Operator | Description
+--- | ---
+`=` | Equal to
+`>` | Greater than
+`<` | Less than
+`>=` | Greater than or equal to
+`<=` | less than or equal to
+`<>` | Not equal to
+
+
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_42.png?raw=true" alt="Capture_2"  /></p>
+
+List of operators that can be used in a `WHERE` clause (from W3Schools [SQL Where Clause page](https://www.w3schools.com/sql/sql_where.asp)).
 
 112- We can also use operators to specify a range for the `WHERE` clause.
 
@@ -132,50 +163,158 @@ WHERE dob>1996;
 
 113- This query returns all columns from `Player_Birthplaces` where data in the `dob` field is greater than `1996`.
 
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_42.png?raw=true" alt="Capture_2"  /></p>
-
-List of operators that can be used in a `WHERE` clause (from W3Schools [SQL Where Clause page](https://www.w3schools.com/sql/sql_where.asp)).
-
 114- SQL query syntax requires single quotes around text values. Numeric fields do not need single quotes.
+
+We can also write queries that test for or return values for multiple conditions, using SQL's logical operators.
+
+These are called subqueries.
+
+For example, what if we wanted to return all records for players born in the Dominican Republic, Venezuela, or Puerto Rico.
+```SQL
+SELECT *
+FROM Player_Birthplaces
+WHERE (country = 'DO') OR (country = 'VE') OR (country = 'PR);
+```
+
+Other SQL operators include:
+
+Operator | Description
+--- | ---
+`ALL` | TRUE if all subquery values meet the condition
+`AND` | TRUE if all the conditions separated by AND is TRUE
+`ANY` | TRUE if any of the subquery values meet the condition
+`BETWEEN` | TRUE if the operand is within the range of comparisons
+`EXISTS` | TRUE if the subquery returns one or more records
+`IN` | True if the operand is equal to one of a list of expressions
+`LIKE` |  TRUE if the operand matches a pattern
+`NOT` | Displays a record if the condition(s) is NOT TRUE
+`OR` | TRUE if any of the conditions separated by OR is TRUE
+`SOME` | TRUE if any of the subquery values meet the condition
 
 <blockquote>Q24: Write an SQL query to return the data from the Team_Locations table for teams located in states that start with the letter M? What data does this query return?</blockquote>
 
 Learn more about operators at Beginner SQL's [Tutorial on SQL Comparison Keywords](https://beginner-sql-tutorial.com/sql-like-in-operators.htm).
 
-# Aggregating and Calculating
+## Aggregating and Calculating
 
-ADD MORE HERE
+SQL contains functions which allow you to make calculations on data in your database for reports. 
 
-We won't cover these functions in this lab, but SQL syntax includes functions that can group query results by particular fields and perform basic arithmetic functions on values in a database.
+Some of the most common functions include:
+- `MAX`: returns the maximum value in a field
+- `MIN`: returns the minimum value in a field
+- `AVG`: returns the average value of a field
+- `COUNT`: counts the number of values in a field and returns the total
+- `SUM`: adds the values in a field and returns the sum
 
-To learn more, visit Library Carpentry's [Aggregating & calculating values page](https://librarycarpentry.org/lc-sql/04-aggregating-calculating/index.html) and W3Schools' [SQL Tutorial](https://www.w3schools.com/sql/default.asp) pages for specific aggregating and calculating functions.
+Let's say we wanted to get the average birth year for players in our dataset.
 
-# Ordering and Commenting
+We can use `AVG` in our query.
+```SQL
+SELECT AVG(DoB)
+FROM Player_Birthplaces;
+```
 
-ADD MORE HERE
+We could also get the average birth year grouped by birth country.
+```SQL
+SELECT AVG(DoB)
+FROM Player_Birthpalces
+GROUP BY Country;
+```
 
-# Joins
+<blockquote>QX: Write a query that gets average birth year for players in Latin America/Caribbean</blockquote>
+
+We can filter the results of aggregate functions using the `HAVING` keyword.
+
+Let's say we only wanted to see the average birth year for players born after 1990.
+```SQL
+SELECT AVG(DoB)
+FROM Player_Birthplaces
+HAVING DoB > 1990;
+```
+
+<blockquote> Check out W3Schools <a href="https://www.w3schools.com/sql/sql_operators.asp">"SQL Operators"</a> page to learn more about SQL Operators, including arithmetic, comparison, compound, and logical operators.</blockquote>
+
+<blockquote>QX: Write a query that gets average birth year for players born in Latin America/Caribbean</blockquote>
+
+In SQL, we can also perform calculations as part of a query.
+
+We can use expressions on a column or multiple columns to get new values during our query.
+
+The results of these calculations are known as computed columns.
+
+SQL's arithmetic operators include:
+
+Operator | Description
+--- | ---
+`+` | Add
+`-` | Subtract
+`*` | Multiply
+`/` | Divide
+`%` | Modulo
+
+For example, let's say we had temperature data in Fahrenheit and needed those values in Celsius, rounded to two decimal places.
+
+We could make this conversion using SQL's arithmetic operators.
+```SQL
+SELECT temp, round(5 * (temp_reading - 32) / 9, 2) as Celsius FROM Temp_Data WHERE quant = 'temp';
+```
+
+Additional resources:
+- Library Carpentry's SQL tutorial, ["Aggregating & Calculating Values"](https://librarycarpentry.org/lc-sql/04-aggregating-calculating/index.html) 
+- Software Carpentry's Databases and SQL tutorial, ["Calculating New Values"](https://swcarpentry.github.io/sql-novice-survey/)
+- W3Schools' [SQL Tutorial](https://www.w3schools.com/sql/default.asp) pages for specific aggregating and calculating functions.
+
+## Order of Execution
+
+SQL queries have an order of execution.
+
+SQL clauses are written in a fixed order:
+1. `SELECT`
+2. `FROM`
+3. `WHERE`
+4. `ORDER BY`
+
+But the order in which we write these clauses is not the order in which SQL executes them.
+
+SQL's order of execution:
+
+Order | Clause | Function
+--- | --- | ---
+1 | `FROM` and `JOIN` | Choose and join tables to get base data
+2 | `WHERE` | Filters the base data
+3 | `GROUP BY` | Aggregates the base data
+4 | `HAVING` | Filters the aggregated data
+5 | `SELECT` | Returns the final data
+6 | `ORDER BY` | Sorts the final data
+7 | `LIMIT` | Limits the returned data based on row count
+
+Why does order of execution matter?
+
+If we know the computational pipeline for how SQL executes a query, we can write more effecient and concise queries.
+
+## Comments
+
+When the queries become more complex, it can be useful to add comments. 
+
+In SQL, comments begin with `--` and end at the end of the line. 
+```SQL
+-- Select all columns
+SELECT *
+
+---From the Player_Birthplaces table
+FROM Player_Birthplaces
+
+--Select only records for players born in Canada
+WHERE country = CA;
+```
+
+## Joins
 
 115- The process of building a relational database in which you identify primary and foreign keys and build relationships across  tables does not change the underlying data structure.
 
 116- We can accomplish this in SQL using `JOIN` functions.
 
 117- According to W3Schools'[SQL Joins page](https://www.w3schools.com/sql/sql_join.asp), "A JOIN clause is used to combine rows from two or more tables, based on a related column between them."
-
-```SQL
-SELECT *
-FROM [transactions]
-JOIN [player_birthplaces]
-ON transactions.player_ids = player_birthplaces.player_ids;
-```
-
-118- This query uses the `player_id` field to join the `Transactions` and `Player_Birthplaces` tables.
-
-119- The query returns all columns in the joined query.
-
-<blockquote>Q25: How would you write an SQL query that joins the Transactions and Team_Locations tables and returns all columns?  What data does this query return?</blockquote>
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_43.gif?raw=true" alt="Capture_2"  /></p>
 
 FIGURE 1
 
@@ -193,11 +332,62 @@ FIGURE 2
 
 Image credit: C.L. Moffatt, ["Visual  Representations of SQL Joins"](https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins) *Code Project* (3 February 2009).
 
-SOME EXCERCISES THAT JOIN OUR TABLES
+Let's write a query that uses the `player_id` field to join the `Transactions` and `Player_Birthplaces` tables.
 
-Learn more about `JOIN` functions at W3Schools' [SQL Joins page](https://www.w3schools.com/sql/sql_join.asp).
+```SQL
+SELECT *
+FROM transactions
+JOIN player_birthplaces
+ON transactions.player_ids = player_birthplaces.player_ids;
+```
 
-# Saving Queries
+118- This query uses the `player_id` field and a left join to join the `Transactions` and `Player_Birthplaces` tables.
+
+119- The query returns all columns in the left join query.
+
+We could also write this query with the `USING` keyword.
+```SQL
+SELECT *
+FROM transactions
+JOIN player_birthplaces
+USING (player_ids);
+```
+
+<blockquote>Q25: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return?</blockquote>
+
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_43.gif?raw=true" alt="Capture_2"  /></p>
+
+Additional resources:
+- W3Schools, ["SQL Joins"](https://www.w3schools.com/sql/sql_join.asp)
+- SQL Joins Explained, ["Basic SQL Join Types"](http://www.sql-join.com/sql-join-types)
+- ChartIO Data School, "SQL Join Types Explained Visually"](https://dataschool.com/how-to-teach-people-sql/sql-join-types-explained-visually/)
+
+## Saving Queries
+
+Let's say you have a query or operation you perform frequently or on a regular basis.
+
+Having to remember and type out the full query syntax would be cumbersome.
+
+SQL gives you the option to save queries in the databases.
+
+These saved queries are called Views.
+
+Let's say we wanted to create a view for a query that returns all data for teams located in Indiana.
+
+```SQL
+CREATE VIEW Indiana_Team_Locations AS
+SELECT *
+FROM Team_Locations
+WHERE state = 'IN';
+```
+
+Now we have the `Indiana_Team_Locations` view we can access without having to type out the full query.
+
+To access the results using the newly-created view:
+```SQL
+SELECT * 
+FROM Indiana_Team_Locations;
+```
 
 # Final questions
 
