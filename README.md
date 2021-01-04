@@ -367,8 +367,6 @@ USING (player_ids);
 
 <blockquote>Q8: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return?Test your query using DB Browser. Include code + comments.</blockquote>
 
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_43.gif?raw=true" alt="Capture_2"  /></p>
-
 67. Additional resources:
 - W3Schools, ["SQL Joins"](https://www.w3schools.com/sql/sql_join.asp)
 - SQL Joins Explained, ["Basic SQL Join Types"](http://www.sql-join.com/sql-join-types)
