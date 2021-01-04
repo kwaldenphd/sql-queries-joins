@@ -5,7 +5,7 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 ## Lab Goals
 
-This lab covers the basics of SQL syntax using DB Browser for SQLite. It covers operations like selecting, sorting, filtering, aggregating, and calculating. It also provides an overview of joins, including common join types. An optional section covers relationship
+This lab covers the basics of SQL syntax using DB Browser for SQLite. It covers operations like selecting, sorting, filtering, aggregating, and calculating. It also provides an overview of joins, including common join types. 
 
 ## Acknowledgements
 The author consulted the following resources when building this tutorial:
@@ -15,13 +15,20 @@ The author consulted the following resources when building this tutorial:
 
 # Table of Contents
 
-- [SQL Query Syntax](#sql-query-syntax)
-  * [Selecting and Sorting](#selecting-and-sorting)
+- [Data](#data)
+- [SQL Syntax](#sql-syntax)
+  * [Selecting](#selecting)
+  * [Wildcard Operators](#wildcard-operators)
+  * [Sorting](#sorting)
   * [Filtering](#filtering)
   * [Aggregating and Calculating](#aggregating-and-calculating)
+  * [Order of Execution](#order-of-execution)
+  * [Comments](#comments)
   * [Joins](#joins)
-- [Optional: Relational Databases in Excel Using PivotTables](#optional-relational-databases-in-excel-using-pivottables)
+  * [Saving Queries](#saving-queries)
+- [Final Questions](#final-questions)
 - [Additional Resources](#additional-resources)
+- [Project Prompts](#project-prompts)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
 # Data
