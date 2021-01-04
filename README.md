@@ -7,6 +7,13 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 This lab covers the basics of SQL syntax using DB Browser for SQLite. It covers operations like selecting, sorting, filtering, aggregating, and calculating. It also provides an overview of joins, including common join types. 
 
+By the end of this lab, students will be able to:
+- Describe the basic syntax of an SQL query, including comments, order of operations, subqueries, and wildcard operators
+- Write basic SQL queries that use common operations like SELECT, SORT, and WHERE
+- Write basic SQL queries that involve basic aggregation and calculation
+- Understand the core concepts of database joins
+- Write basic JOIN operations in SQL syntax
+
 ## Acknowledgements
 The author consulted the following resources when building this tutorial:
 - [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
