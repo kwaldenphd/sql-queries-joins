@@ -158,11 +158,11 @@ Operator | Description
 `>=` | Greater than or equal to
 `<=` | less than or equal to
 `<>` | Not equal to
+`BETWEEN` | Between a specified range
+`LIKE` | Searches for a pattern based on similarity
+`IN` | Specifies multiple possible values for a column
 
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_42.png?raw=true" alt="Capture_2"  /></p>
-
-27. List of operators that can be used in a `WHERE` clause (from W3Schools [SQL Where Clause page](https://www.w3schools.com/sql/sql_where.asp)).
+27. For more on operators  that can be used in a `WHERE` clause (from W3Schools [SQL Where Clause page](https://www.w3schools.com/sql/sql_where.asp)).
 
 28. We can also use operators to specify a range for the `WHERE` clause.
 
@@ -327,7 +327,7 @@ WHERE country = CA;
 
 60. According to W3Schools'[SQL Joins page](https://www.w3schools.com/sql/sql_join.asp), "A JOIN clause is used to combine rows from two or more tables, based on a related column between them."
 
-FIGURE 1
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_1.png?raw=true" alt="Capture_2"  /></p>
 
 Image credit: [Tweet by Hiroaki Yutani](https://twitter.com/yutannihilation/status/551572539697143808?s=20) @yutannihilation (3 January 2015)
 
@@ -339,7 +339,8 @@ Image credit: [Tweet by Hiroaki Yutani](https://twitter.com/yutannihilation/stat
 
 62. We can express these `JOIN` functions programmatically in SQL.
 
-FIGURE 2
+
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_2.png?raw=true" alt="Capture_2"  /></p>
 
 Image credit: C.L. Moffatt, ["Visual  Representations of SQL Joins"](https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins) *Code Project* (3 February 2009).
 
