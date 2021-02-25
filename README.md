@@ -43,7 +43,7 @@ The author consulted the following resources when building this tutorial:
 1. The following data files are used in this tutorial:
 - `Database_Lab_Data.xlsx`
 - `Player_PoB.csv`
-- `Player_Birthplaces`
+- `Player_Birthplaces.csv`
 - `Team_Locations.csv`
 - `Combined_Transactions.csv`
 
