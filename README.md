@@ -43,6 +43,7 @@ The author consulted the following resources when building this tutorial:
 1. The following data files are used in this tutorial:
 - `Database_Lab_Data.xlsx`
 - `Player_PoB.csv`
+- `Player_Birthplaces`
 - `Team_Locations.csv`
 - `Combined_Transactions.csv`
 
@@ -81,11 +82,11 @@ SELECT [field_1], [field_2], [field_3]
 FROM [table];
 ```
 
-<blockquote>Q1: Write an SQL query to select the list of player ids and birthplace countries from the Player_PoB table? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q1: Write an SQL query to select the list of player ids and birthplace countries from the Player_Birthplaces table? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 13. We might want to write a query to return all the unique values in a particular field.
 
-14. For example, selecting the entire `country` field in the `Player_PoB` table would return many duplicate values.
+14. For example, selecting the entire `country` field in the `Player_Birthplaces` table would return many duplicate values.
 
 ```SQL
 SELECT DISTINCT [field]
