@@ -35,7 +35,6 @@ The author consulted the following resources when building this tutorial:
   * [Saving Queries](#saving-queries)
 - [Final Questions](#final-questions)
 - [Additional Resources](#additional-resources)
-- [Project Prompts](#project-prompts)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
 # Data
@@ -415,19 +414,7 @@ FROM Indiana_Team_Locations;
 
 <blockquote>Q11: What questions or thoughts do you have about building and interacting with relational databases?</blockquote>
 
-# Additional Resources
-- [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
-- [Library Carpentry "Tidy Data for Librarians"](https://librarycarpentry.org/lc-spreadsheets/)
-- [Library Carpentry "Database Design"](https://librarycarpentry.org/lc-sql/08-database-design/index.html)
-- [Library Carpentry "Open Refine"](https://librarycarpentry.org/lc-open-refine/)
-- [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
-- [Lucid Chart "Database Design"](https://www.lucidchart.com/pages/database-diagram/database-design)
-- [Lucid Chart "ER Diagrams"](https://www.lucidchart.com/pages/er-diagrams)
-
-
-# Project Prompts
-
-Select one of the following SQL statements:
+Q12: Select one of the following SQL statements:
 - `AND/OR`
 - `ALTER TABLE`
 - `BETWEEN`
@@ -452,6 +439,16 @@ Resources:
 - https://www.w3schools.com/sql/sql_quickref.asp
 - https://www.w3schools.com/sql/sql_syntax.asp
 
+# Additional Resources
+- [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
+- [Library Carpentry "Tidy Data for Librarians"](https://librarycarpentry.org/lc-spreadsheets/)
+- [Library Carpentry "Database Design"](https://librarycarpentry.org/lc-sql/08-database-design/index.html)
+- [Library Carpentry "Open Refine"](https://librarycarpentry.org/lc-open-refine/)
+- [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
+- [Lucid Chart "Database Design"](https://www.lucidchart.com/pages/database-diagram/database-design)
+- [Lucid Chart "ER Diagrams"](https://www.lucidchart.com/pages/er-diagrams)
+
+
 # Lab Notebook Questions
 
 Q1: Write an SQL query to select the list of player ids and birthplace countries from the Player_Birthplaces table? What data does this query return? Test your query using DB Browser. Include code + comments.
@@ -475,3 +472,28 @@ Q9: Write an SQL query that answers our question about the number of players bor
 Q10: How would you describe the affordances of relational databases to someone who hasn't been through these labs?
 
 Q11: What questions or thoughts do you have about building and interacting with relational database?
+
+Q12: Select one of the following SQL statements:
+- `AND/OR`
+- `ALTER TABLE`
+- `BETWEEN`
+- `CREATE`
+- `DELETE`
+- `DROP`
+- `EXISTS`
+- `GROUP BY`
+- `HAVING`
+- `IN`
+- `INSERT`
+- `JOIN`
+- `ORDER BY`
+- `SELECT`
+- `WHERE`
+
+Write a brief explanation for what the statement will do.
+
+Include an example of how you would use the statement in an SQL query.
+
+Resources:
+- https://www.w3schools.com/sql/sql_quickref.asp
+- https://www.w3schools.com/sql/sql_syntax.asp
