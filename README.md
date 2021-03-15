@@ -20,6 +20,9 @@ The author consulted the following resources when building this tutorial:
 - [Library Carpentry "Database Design"](https://librarycarpentry.org/lc-sql/08-database-design/index.html)
 - [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
 
+
+Peer review and editing was provided by Spring 2021 graduate teaching assistant [Eric Tsai Sahoo](https://github.com/milktea292).
+
 # Table of Contents
 
 - [Data](#data)
