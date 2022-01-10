@@ -20,55 +20,91 @@ The author consulted the following resources when building this tutorial:
 - [Library Carpentry "Database Design"](https://librarycarpentry.org/lc-sql/08-database-design/index.html)
 - [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
 
-
 Peer review and editing was provided by Spring 2021 graduate teaching assistant [Eric Tsai Sahoo](https://github.com/milktea292).
 
 # Table of Contents
 
+- [Lab notebook template](#lab-notebook-template)
 - [Data](#data)
 - [SQL Syntax](#sql-syntax)
+  * [Comments](#comments)
   * [Selecting](#selecting)
   * [Wildcard Operators](#wildcard-operators)
   * [Sorting](#sorting)
   * [Filtering](#filtering)
   * [Aggregating and Calculating](#aggregating-and-calculating)
   * [Order of Execution](#order-of-execution)
-  * [Comments](#comments)
   * [Joins](#joins)
   * [Saving Queries](#saving-queries)
 - [Final Questions](#final-questions)
 - [Additional Resources](#additional-resources)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
+# Lab notebook template
+
+[Link to lab notebook template (Google Doc)](https://docs.google.com/document/d/1J6rWJ-KM4dHHKTX8t5veJZRsLpUrfoveY1Mh7L-U8ic/copy)
+- DB Browser screenshots are HIGHLY recommended.
+  * Windows ([Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b) for folks running older versions of Windows; [Snip & Sketch](https://www.lifewire.com/snip-and-sketch-windows-10-4774799) for folks running updated versions)
+  * [Mac](https://support.apple.com/en-us/HT201361)
+  * [Google Chromebook](https://support.google.com/chromebook/answer/10474268?hl=en)
+- [Tutorial for adding images/tables/drawings to a Google Doc](https://www.techrepublic.com/article/how-to-add-images-tables-and-drawings-to-a-google-doc-file/)
+
 # Data
 
-1. The following data files are used in this tutorial:
-- `Database_Lab_Data.xlsx`
-- `Player_PoB.csv`
-- `Player_Birthplaces.csv`
-- `Team_Locations.csv`
-- `Combined_Transactions.csv`
+In the previous lab, we created a relational database from three `.csv` files.
+- [`Player_Birthplaces.csv`](https://drive.google.com/file/d/1qthm3HSN5FaEFusC1_Zk-0qL0A6LIEB-/view?usp=sharing)
+- [`Team_Locations.csv`](https://drive.google.com/file/d/1fttQhzoAwYOJC-mB17RATaqD4mfUTIV_/view?usp=sharing)
+- [`Combined_Transactions.csv`](https://drive.google.com/file/d/17Z9C7snAMjARTQYoRXufwaO2j9ssl0g8/view?usp=sharing)
 
-2. They can be downloaded as a `zip` folder in this GitHub repo.
+Consult the [previous lab's procedure/documentation](https://github.com/kwaldenphd/data-models#getting-started-with-db-browser-for-sqlite) if you need to re-create this database.
 
-3. [Link to access via Google Drive link (ND users only)](https://drive.google.com/drive/folders/1uzjZt4fxTa7qmAIfeTyKNtzT94rhZrf8?usp=sharing)
+You will need to be able to load this relational database in DB Browser for this lab.
 
-4. You will need to load this data as a relational database in DB Browser for this lab.
-
-5. Consult [Getting Started with SQLite](https://github.com/kwaldenphd/sqlite-intro) for detailed instructions on creating this database. 
+If needed, you can download the relational database [from Google Drive](https://drive.google.com/file/d/1uQHOIeMdCZOyXsIdDgfimUE-63I33pIm/view?usp=sharing).
 
 # SQL Syntax
 
-6. As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "Structured Query Language, or SQL (sometimes pronounced 'sequel'), is a powerful language used to interrogate and manipulate relational databases. It is not a general programming language that you can use to write an entire program."
+1. What is SQL? As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "Structured Query Language, or SQL (sometimes pronounced 'sequel'), is a powerful language used to interrogate and manipulate relational databases. It is not a general programming language that you can use to write an entire program."
 
-7. When working in a relational database, we can use SQL to write queries.
+2. When working with relational database systems, we can use SQL to write queries.
 
-8. As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "a query is a question or request for data. For example, “How many journals does our library subscribe to?” When we query a database, we can ask the same question using a common language called Structured Query Language or SQL in what is called a statement. Some of the most useful queries - the ones we are introducing in this first section - are used to return results from a table that match specific criteria."
+3. What are queries? As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "a query is a question or request for data. For example, “How many journals does our library subscribe to?” When we query a database, we can ask the same question using a common language called Structured Query Language or SQL in what is called a statement. Some of the most useful queries - the ones we are introducing in this first section - are used to return results from a table that match specific criteria."
 
-9. This section of the lab will introduce some basic elements of SQL syntax. 
+## DB Browser Setup
+
+4. In this lab, we'll be using DB Browser for SQLite (a program we installed in a previous lab) to run SQL statements and queries.
+
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_4.jpg?raw=true" /></p>
+
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_5.jpg?raw=true" /></p>
+
+5. Open the DB Browser program and select the `Open Database` icon.
+
+6. Open the `.db` file you created in the previous lab (or downloaded at the start of this lab).
+
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_6.jpg?raw=true" /></p>
+
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_7.jpg?raw=true" /></p>
+
+7. Click the `Execute SQL` tab. The top text-box on the left-hand pane in the program (immediately below `SQL 1`) is where we will type SQL statements.
+
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_8.jpg?raw=true" /></p>
+
+8. Once we start adding SQL syntax, we can run all (or a selection) using the single arrow icon (left of the two arrows, immediate right of print). 
+- We can use the other arrow (right of the two arrows) to run a single line.
+
+## Comments
+
+9. We can add single-line comments to our SQL statements using a double dash `--`.
+
+```SQL
+-- this is my single-line comment
+```
 
 ## Selecting
+
 ```SQL
+-- sample syntax for select
 SELECT [field]
 FROM [table];
 ```
@@ -80,6 +116,7 @@ FROM [table];
 12. Adding multiple columns after `SELECT` will return data from multiple columns.
 
 ```SQL
+-- sample syntax for selecting multiple fields
 SELECT [field_1], [field_2], [field_3]
 FROM [table];
 ```
@@ -91,6 +128,7 @@ FROM [table];
 14. For example, selecting the entire `country` field in the `Player_Birthplaces` table would return many duplicate values.
 
 ```SQL
+-- sample syntax for selecting unique values
 SELECT DISTINCT [field]
 FROM [table];
 ```
@@ -119,6 +157,7 @@ Symbol | Description | Example
 17. We might also want to sort the results returned by a query.
 
 ```SQL
+-- sample syntax that selects all values from a table and orders by specific file
 SELECT *
 FROM [table]
 ORDER BY [field] ASC;
@@ -133,6 +172,7 @@ ORDER BY [field] ASC;
 <blockquote>Q3: Write an SQL query to return the unique list of team names from the Team_Locations table, sorted in reverse alphabetical order. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 ```SQL
+-- sample syntax that selects all values from a table and orders by two fields
 SELECT *
 FROM [table]
 ORDER BY [field_1] ASC, [field_2] DESC;
@@ -149,6 +189,7 @@ ORDER BY [field_1] ASC, [field_2] DESC;
 23. Sometimes we may only want to return values that fall within a specific range or based on a particular set of conditions.
 
 ```SQL
+-- select all values where country = "DO"
 SELECT *
 FROM Player_Birthplaces
 WHERE country='DO';
@@ -177,8 +218,9 @@ Operator | Description
 28. We can also use operators to specify a range for the `WHERE` clause.
 
 ```SQL
+-- select values where dob is greater than 1996
 SELECT *
-FROM [Player_Birthplaces]
+FROM Player_Birthplaces
 WHERE dob>1996;
 ```
 
@@ -192,6 +234,7 @@ WHERE dob>1996;
 
 33. For example, what if we wanted to return all records for players born in the Dominican Republic, Venezuela, or Puerto Rico.
 ```SQL
+-- select all values from table where country equals any of three values
 SELECT *
 FROM Player_Birthplaces
 WHERE (country = 'DO') OR (country = 'VE') OR (country = 'PR);
@@ -231,12 +274,14 @@ Operator | Description
 
 39. We can use `AVG` in our query.
 ```SQL
+-- get average DoB from specific table
 SELECT AVG(DoB)
 FROM Player_Birthplaces;
 ```
 
 40. We could also get the average birth year grouped by birth country.
 ```SQL
+-- get average DoB from specific table and group by another field
 SELECT AVG(DoB)
 FROM Player_Birthpalces
 GROUP BY Country;
@@ -248,6 +293,7 @@ GROUP BY Country;
 
 42. Let's say we only wanted to see the average birth year for players born after 1990.
 ```SQL
+-- get average DoB from specific table only for records that meet a specific condition
 SELECT AVG(DoB)
 FROM Player_Birthplaces
 HAVING DoB > 1990;
@@ -277,6 +323,7 @@ Operator | Description
 
 48. We could make this conversion using SQL's arithmetic operators.
 ```SQL
+-- sample syntax for temperature conversion formula
 SELECT temp, round(5 * (temp_reading - 32) / 9, 2) as Celsius FROM Temp_Data WHERE quant = 'temp';
 ```
 
@@ -290,10 +337,12 @@ SELECT temp, round(5 * (temp_reading - 32) / 9, 2) as Celsius FROM Temp_Data WHE
 50. SQL queries have an order of execution.
 
 51. SQL clauses are written in a fixed order:
-  i. `SELECT`
-  ii. `FROM`
-  iii. `WHERE`
-  iv. `ORDER BY`
+<ol type="i">
+<li><code>SELECT</code></li>
+<li><code>FROM</code></li>
+<li><code>WHERE</code></li>
+<li><code>ORDER BY</code></li>
+</ol>
 
 52. But the order in which we write these clauses is not the order in which SQL executes them.
 
@@ -313,53 +362,73 @@ Order | Clause | Function
 
 55. If we know the computational pipeline for how SQL executes a query, we can write more effecient and concise queries.
 
-## Comments
-
-56. When the queries become more complex, it can be useful to add comments. 
-
-57. In SQL, comments begin with `--` and end at the end of the line. 
-```SQL
--- Select all columns
-SELECT *
-
----From the Player_Birthplaces table
-FROM Player_Birthplaces
-
---Select only records for players born in Canada
-WHERE country = CA;
-```
-
 ## Joins
 
-58. The process of building a relational database in which you identify primary and foreign keys and build relationships across  tables does not change the underlying data structure.
+56. The process of building a relational database in which you identify primary and foreign keys and build relationships across tables does not change the underlying data structure.
 
-59. We can accomplish this in SQL using `JOIN` functions.
+57. We can accomplish this in SQL using `JOIN` functions.
 
-60. According to W3Schools'[SQL Joins page](https://www.w3schools.com/sql/sql_join.asp), "A JOIN clause is used to combine rows from two or more tables, based on a related column between them."
+58. What is a join?
 
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_1.png?raw=true" alt="Capture_2"  /></p>
+59. According to W3Schools'[SQL Joins page](https://www.w3schools.com/sql/sql_join.asp), "A JOIN clause is used to combine rows from two or more tables, based on a related column between them."
 
-Image credit: [Tweet by Hiroaki Yutani](https://twitter.com/yutannihilation/status/551572539697143808?s=20) @yutannihilation (3 January 2015)
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_3.jpg?raw=true" /></p>
 
-61. There are four main types of `JOIN` functions.
+Image credit: W3 Schools, ["Different Types of SQL Joins"](https://www.w3schools.com/sql/sql_join.asp) (n.d.)
+
+60. There are four main types of `JOIN` functions.
 - `(INNER) JOIN` returns matching records in both tables
 - `LEFT (OUTER) JOIN` returns all records from the left table and only matching records from the right table
 - `RIGHT (OUTER) JOIN` returns all records from the right table and only matching records from the left table
 - `FULL (OUTER) JOIN` returns all matching records from both the left and right tables
 
-62. We can express these `JOIN` functions programmatically in SQL.
+61. We can express these `JOIN` functions programmatically in SQL.
 
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_2.png?raw=true" alt="Capture_2"  /></p>
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_2.png?raw=true"/></p>
 
 Image credit: C.L. Moffatt, ["Visual  Representations of SQL Joins"](https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins) *Code Project* (3 February 2009).
 
-63. Let's write a query that uses the `player_id` field to join the `Transactions` and `Player_Birthplaces` tables.
+62. Sample syntax for these examples:
 
 ```SQL
+-- left join example
+SELECT [FIELD(S)]
+FROM [TABLE 1]
+LEFT JOIN [TABLE 2]
+ON table1.field = table2.field;
+```
+
+```SQL
+-- right join example
+SELECT [FIELD(S)]
+FROM [TABLE 1]
+RIGHT JOIN [TABLE 2]
+ON table1.field = table2.field;
+```
+
+```SQL
+-- inner join example
+SELECT [FIELD(S)]
+FROM [TABLE 1]
+INNER JOIN [TABLE 2]
+ON table1.field = table2.field;
+```
+
+```SQL
+-- full or outer join example
+SELECT [FIELD(S)]
+FROM [TABLE 1]
+FULL OUTER JOIN [TABLE 2]
+ON table1.field = table2.field;
+```
+
+63. Let's write a SQL statement that uses the `player_id` field to join the `Transactions` and `Player_Birthplaces` tables.
+
+```SQL
+-- left join that joins matching records from player_birthplaces table
 SELECT *
 FROM transactions
-JOIN player_birthplaces
+LEFT JOIN player_birthplaces
 ON transactions.player_ids = player_birthplaces.player_ids;
 ```
 
@@ -369,18 +438,19 @@ ON transactions.player_ids = player_birthplaces.player_ids;
 
 66. We could also write this query with the `USING` keyword.
 ```SQL
+-- alternate syntax for left join that joins matching records from player_birthplaces table
 SELECT *
 FROM transactions
-JOIN player_birthplaces
+LEFT JOIN player_birthplaces
 USING (player_ids);
 ```
 
-<blockquote>Q8: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return?Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q8: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 67. Additional resources:
 - W3Schools, ["SQL Joins"](https://www.w3schools.com/sql/sql_join.asp)
 - SQL Joins Explained, ["Basic SQL Join Types"](http://www.sql-join.com/sql-join-types)
-- ChartIO Data School, "SQL Join Types Explained Visually"](https://dataschool.com/how-to-teach-people-sql/sql-join-types-explained-visually/)
+- ChartIO Data School, ["SQL Join Types Explained Visually"](https://dataschool.com/how-to-teach-people-sql/sql-join-types-explained-visually/)
 
 ## Saving Queries
 
@@ -395,6 +465,7 @@ USING (player_ids);
 72. Let's say we wanted to create a view for a query that returns all data for teams located in Indiana.
 
 ```SQL
+-- syntax for saving a query
 CREATE VIEW Indiana_Team_Locations AS
 SELECT *
 FROM Team_Locations
@@ -405,6 +476,7 @@ WHERE state = 'IN';
 
 74. To access the results using the newly-created view:
 ```SQL
+-- syntax for accessing a saved query
 SELECT * 
 FROM Indiana_Team_Locations;
 ```
@@ -443,16 +515,18 @@ Resources:
 - https://www.w3schools.com/sql/sql_syntax.asp
 
 # Additional Resources
-- [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
-- [Library Carpentry "Tidy Data for Librarians"](https://librarycarpentry.org/lc-spreadsheets/)
-- [Library Carpentry "Database Design"](https://librarycarpentry.org/lc-sql/08-database-design/index.html)
-- [Library Carpentry "Open Refine"](https://librarycarpentry.org/lc-open-refine/)
-- [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
-- [Lucid Chart "Database Design"](https://www.lucidchart.com/pages/database-diagram/database-design)
-- [Lucid Chart "ER Diagrams"](https://www.lucidchart.com/pages/er-diagrams)
 
+- [W3 Schools "SQL Tutorial"](https://www.w3schools.com/sql/default.asp)
+- [Library Carpentry "SQL Tutorial"](https://librarycarpentry.org/lc-sql/)
 
 # Lab Notebook Questions
+
+[Link to lab notebook template (Google Doc)](https://docs.google.com/document/d/1J6rWJ-KM4dHHKTX8t5veJZRsLpUrfoveY1Mh7L-U8ic/copy)
+- DB Browser screenshots are HIGHLY recommended.
+  * Windows ([Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b) for folks running older versions of Windows; [Snip & Sketch](https://www.lifewire.com/snip-and-sketch-windows-10-4774799) for folks running updated versions)
+  * [Mac](https://support.apple.com/en-us/HT201361)
+  * [Google Chromebook](https://support.google.com/chromebook/answer/10474268?hl=en)
+- [Tutorial for adding images/tables/drawings to a Google Doc](https://www.techrepublic.com/article/how-to-add-images-tables-and-drawings-to-a-google-doc-file/)
 
 Q1: Write an SQL query to select the list of player ids and birthplace countries from the Player_Birthplaces table? What data does this query return? Test your query using DB Browser. Include code + comments.
 
