@@ -299,7 +299,7 @@ FROM Player_Birthplaces
 GROUP BY Country;
 ```
 
-<blockquote>Q7: Write a query that gets average birth year for players born in Latin America or the Caribbean. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q7: Write a query that gets average birth year for players born in Latin America or the Caribbean (`Region`). What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 41. We can filter the results of aggregate functions using the `HAVING` keyword.
   * NOTE: The `HAVING` keyword has to be used in combination with `GROUP BY`.
@@ -554,7 +554,7 @@ Q5: Write an SQL query to return the data from the Player_Birthplaces table for 
 
 Q6: Write an SQL query to return the data from the Player_Birthplaces table for players born in cities that start with the letter “S”. What data does this query return? Test your query using DB Browser. Include code + comments.
 
-Q7: Write a query that gets average birth year for players in Latin America/Caribbean. What data does this query return? Test your query using DB Browser. Include code + comments.
+Q7: Write a query that gets average birth year for players born in Latin America or the Caribbean (`Region`). What data does this query return? Test your query using DB Browser. Include code + comments.
 
 Q8: Write a query that gets average birth year for players born after a specific year. What data does this query return? Test your query using DB Browser. Include code + comments.
 
