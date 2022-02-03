@@ -459,7 +459,7 @@ LEFT JOIN player_birthplaces
 USING (id_person);
 ```
 
-<blockquote>Q9: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q9: Write an SQL query that joins the Transactions and Team_Locations tables and returns all matching columns from the Transactions table. What kind of join is this? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 67. Additional resources:
 - W3Schools, ["SQL Joins"](https://www.w3schools.com/sql/sql_join.asp)
@@ -558,7 +558,7 @@ Q7: Write a query that gets average birth year for players born in South America
 
 Q8: Write a query that gets average birth year for players born after a specific year. What data does this query return? Test your query using DB Browser. Include code + comments.
 
-Q9: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return?Test your query using DB Browser. Include code + comments.
+Q9: Write an SQL query that joins the Transactions and Team_Locations tables and returns all matching columns from the Transactions table. What kind of join is this? What data does this query return? Test your query using DB Browser. Include code + comments.
 
 Q10: Write an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Indiana. Test your query using DB Browser. Include code + comments.
 
