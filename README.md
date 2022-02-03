@@ -221,7 +221,7 @@ WHERE dob>1996;
 -- select all values from table where country equals any of three values
 SELECT *
 FROM Player_Birthplaces
-WHERE (country = 'DO') OR (country = 'VE') OR (country = 'PR);
+WHERE (country = 'DO') OR (country = 'VE') OR (country = 'PR');
 ```
 
 32. Other SQL operators include:
