@@ -295,11 +295,11 @@ FROM Player_Birthplaces;
 ```SQL
 -- get average DoB from specific table and group by another field
 SELECT AVG(DoB), Country
-FROM Player_Birthpalces
+FROM Player_Birthplaces
 GROUP BY Country;
 ```
 
-<blockquote>Q7: Write a query that gets average birth year for players in Latin America/Caribbean. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q7: Write a query that gets average birth year for players born in Latin America or the Caribbean. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 41. We can filter the results of aggregate functions using the `HAVING` keyword.
   * NOTE: The `HAVING` keyword has to be used in combination with `GROUP BY`.
