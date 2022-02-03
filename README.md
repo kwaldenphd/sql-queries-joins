@@ -294,7 +294,7 @@ FROM Player_Birthplaces;
 40. We could also get the average birth year grouped by birth country.
 ```SQL
 -- get average DoB from specific table and group by another field
-SELECT AVG(DoB)
+SELECT AVG(DoB), Country
 FROM Player_Birthpalces
 GROUP BY Country;
 ```
@@ -302,12 +302,14 @@ GROUP BY Country;
 <blockquote>Q7: Write a query that gets average birth year for players in Latin America/Caribbean. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 41. We can filter the results of aggregate functions using the `HAVING` keyword.
+  * NOTE: The `HAVING` keyword has to be used in combination with `GROUP BY`.
 
 42. Let's say we only wanted to see the average birth year for players born after 1990.
 ```SQL
 -- get average DoB from specific table only for records that meet a specific condition
-SELECT AVG(DoB)
+SELECT AVG(DoB), Country
 FROM Player_Birthplaces
+GROUP BY Country
 HAVING DoB > 1990;
 ```
 
@@ -439,9 +441,9 @@ ON table1.field = table2.field;
 ```SQL
 -- left join that joins matching records from player_birthplaces table
 SELECT *
-FROM transactions
+FROM combined_transactions
 LEFT JOIN player_birthplaces
-ON transactions.player_ids = player_birthplaces.player_ids;
+ON combined_transactions.id_person = player_birthplaces.id_person;
 ```
 
 64. This query uses the `player_id` field and a left join to join the `Transactions` and `Player_Birthplaces` tables.
@@ -452,9 +454,9 @@ ON transactions.player_ids = player_birthplaces.player_ids;
 ```SQL
 -- alternate syntax for left join that joins matching records from player_birthplaces table
 SELECT *
-FROM transactions
+FROM combined_transactions
 LEFT JOIN player_birthplaces
-USING (player_ids);
+USING (id_person);
 ```
 
 <blockquote>Q9: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
