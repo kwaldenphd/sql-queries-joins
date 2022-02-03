@@ -29,9 +29,9 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
 - [SQL Syntax](#sql-syntax)
   * [Comments](#comments)
   * [Selecting](#selecting)
-  * [Wildcard Operators](#wildcard-operators)
   * [Sorting](#sorting)
   * [Filtering](#filtering)
+    * [Wildcard Operators](#wildcard-operators)
   * [Aggregating and Calculating](#aggregating-and-calculating)
   * [Order of Execution](#order-of-execution)
   * [Joins](#joins)
@@ -137,24 +137,9 @@ FROM [table];
 
 <blockquote>Q2: Write an SQL query to return the unique list of player birthplace countries from the Player_Birthplaces table. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
-## Wildcard Operators
-
-16. SQL has a number of wildcard operators that (like regular expressions, or regex commands) can be useful to substitute one or more characters in a string.
-
-Symbol | Description | Example
---- | --- |---
-`*` | Represents zero or more characters | `bl*` returns bl, black, blue, and blob
-`?` | Represents a single character | `h?t` returns hot, hat, and hit
-`[]` | Represents any single character within the brackets | `h[oa]t` returns hot and hat, but not hit
-`?` | Represents any character not in the brackets | `h[?oa]t` returns hit, but not hot and hat
-`-` | Represents a range of characters | `c[a-b]t` finds cat and cbt
-`#` | Represents any single numeric character | `2#5` returns 205, 215, 225, 235, 245, 255, 265, 275, 285, and 295
-
-<blockquote>Check out W3Schools <a href="https://www.w3schools.com/sql/sql_wildcards.asp">"SQL Wildcards"</a> for more on wildcard characters in SQL.</blockquote>
-
 ## Sorting
 
-17. We might also want to sort the results returned by a query.
+16. We might also want to sort the results returned by a query.
 
 ```SQL
 -- sample syntax that selects all values from a table and orders by specific file
@@ -163,11 +148,11 @@ FROM [table]
 ORDER BY [field] ASC;
 ```
 
-18. The `*` wildcard operator selects all the fields in a specific table.
+17. The `*` wildcard operator selects all the fields in a specific table.
 
-19. `ORDER BY` specifies a field to use in sorting the query results.
+18. `ORDER BY` specifies a field to use in sorting the query results.
 
-20. `ASC` returns ascending results. `DESC` would return descending results.
+19. `ASC` returns ascending results. `DESC` would return descending results.
 
 <blockquote>Q3: Write an SQL query to return the unique list of team names from the Team_Locations table, sorted in reverse alphabetical order. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
@@ -178,15 +163,15 @@ FROM [table]
 ORDER BY [field_1] ASC, [field_2] DESC;
 ```
 
-21. We can also sort on multiple fields.
+20. We can also sort on multiple fields.
 
-22. In the query above, the `ORDER BY` statement sorts `[field_1]` first (ascending) and then sorts `[field_2]` (descending).
+21. In the query above, the `ORDER BY` statement sorts `[field_1]` first (ascending) and then sorts `[field_2]` (descending).
 
 <blockquote>Q4: Write an SQL query to return the data from the Player_Birthplaces table, sorted in chronological order by birth year and reverse alphabetical order by country. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 ## Filtering
 
-23. Sometimes we may only want to return values that fall within a specific range or based on a particular set of conditions.
+22. Sometimes we may only want to return values that fall within a specific range or based on a particular set of conditions.
 
 ```SQL
 -- select all values where country = "DO"
@@ -195,11 +180,11 @@ FROM Player_Birthplaces
 WHERE country='DO';
 ```
 
-24. This query returns all columns from the `Player_Birthplaces` table where data in the `country` field is equal to `DO`.
+23. This query returns all columns from the `Player_Birthplaces` table where data in the `country` field is equal to `DO`.
 
-25. The data returned by this query includes all the records for players born in the Dominican Republic.
+24. The data returned by this query includes all the records for players born in the Dominican Republic.
 
-26. Other comparison operators in SQL include:
+25. Other comparison operators in SQL include:
 
 Operator | Description
 --- | ---
@@ -213,9 +198,9 @@ Operator | Description
 `LIKE` | Searches for a pattern based on similarity
 `IN` | Specifies multiple possible values for a column
 
-27. For more on operators  that can be used in a `WHERE` clause (from W3Schools [SQL Where Clause page](https://www.w3schools.com/sql/sql_where.asp)).
+26. For more on operators  that can be used in a `WHERE` clause (from W3Schools [SQL Where Clause page](https://www.w3schools.com/sql/sql_where.asp)).
 
-28. We can also use operators to specify a range for the `WHERE` clause.
+27. We can also use operators to specify a range for the `WHERE` clause.
 
 ```SQL
 -- select values where dob is greater than 1996
@@ -224,15 +209,14 @@ FROM Player_Birthplaces
 WHERE dob>1996;
 ```
 
-29. This query returns all columns from `Player_Birthplaces` where data in the `dob` field is greater than `1996`.
+28. This query returns all columns from `Player_Birthplaces` where data in the `dob` field is greater than `1996`.
 
-30. SQL query syntax requires single quotes around text values. Numeric fields do not need single quotes.
+29. SQL query syntax requires single quotes around text values. Numeric fields do not need single quotes.
 
-31. We can also write queries that test for or return values for multiple conditions, using SQL's logical operators.
+30. We can also write queries that test for or return values for multiple conditions, using SQL's logical operators. These are called subqueries.
 
-32. These are called subqueries.
+31. For example, what if we wanted to return all records for players born in the Dominican Republic, Venezuela, or Puerto Rico.
 
-33. For example, what if we wanted to return all records for players born in the Dominican Republic, Venezuela, or Puerto Rico.
 ```SQL
 -- select all values from table where country equals any of three values
 SELECT *
@@ -240,7 +224,7 @@ FROM Player_Birthplaces
 WHERE (country = 'DO') OR (country = 'VE') OR (country = 'PR);
 ```
 
-34. Other SQL operators include:
+32. Other SQL operators include:
 
 Operator | Description
 --- | ---
@@ -255,9 +239,37 @@ Operator | Description
 `OR` | TRUE if any of the conditions separated by OR is TRUE
 `SOME` | TRUE if any of the subquery values meet the condition
 
-<blockquote>Q5: Write an SQL query to return the data from the Team_Locations table for teams located in states that start with the letter M. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q5: Write an SQL query to return the data from the Player_Birthplaces table for players before 1985. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
-35. Learn more about operators at Beginner SQL's [Tutorial on SQL Comparison Keywords](https://beginner-sql-tutorial.com/sql-like-in-operators.htm).
+<blockquote>Learn more about operators at Beginner SQL's <a href="https://beginner-sql-tutorial.com/sql-like-in-operators.htm">Tutorial on SQL Comparison Keywords</a>.</blockquote>
+
+### Wildcard Operators
+
+33. SQL has a number of wildcard operators that (like regular expressions, or regex commands) can be useful to substitute one or more characters in a string.
+
+Symbol | Description | Example
+--- | --- |---
+`%` | Represents zero or more characters | `bl%` returns bl, black, blue, and blob
+`_` | Represents a single character | `h_t` returns hot, hat, and hit
+`[]` | Represents any single character within the brackets | `h[oa]t` returns hot and hat, but not hit
+`^` | Represents any character not in the brackets | `h[^oa]t` returns hit, but not hot and hat
+`-` | Represents a range of characters | `c[a-b]t` finds cat and cbt
+
+34. When using wildcard characters to search or match a string, we use the `LIKE` operator in combination with the `WHERE` clause.
+
+For example:
+```SQL
+-- sample syntax for WHERE and LIKE
+SELECT *
+FROM TABLE
+WHERE FIELD LIKE 'WILDCARD EXPRESSION';
+```
+
+<blockquote>Check out W3Schools <a href="https://www.w3schools.com/sql/sql_wildcards.asp">"SQL Wildcards"</a> for more on wildcard characters in SQL.</blockquote>
+
+35. We can use `WHERE` and `LIKE` in combination with wildcard operators to filter records based on string character patterns.
+
+<blockquote>Q6: Write an SQL query to return the data from the Player_Birthplaces table for players born in cities that start with the letter “S”. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 ## Aggregating and Calculating
 
@@ -287,7 +299,7 @@ FROM Player_Birthpalces
 GROUP BY Country;
 ```
 
-<blockquote>Q6: Write a query that gets average birth year for players in Latin America/Caribbean. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q7: Write a query that gets average birth year for players in Latin America/Caribbean. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 41. We can filter the results of aggregate functions using the `HAVING` keyword.
 
@@ -301,7 +313,7 @@ HAVING DoB > 1990;
 
 <blockquote>Check out W3Schools <a href="https://www.w3schools.com/sql/sql_operators.asp">"SQL Operators"</a> page to learn more about SQL Operators, including arithmetic, comparison, compound, and logical operators.</blockquote>
 
-<blockquote>Q7: Write a query that gets average birth year for players born after a specific year. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q8: Write a query that gets average birth year for players born after a specific year. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 43. In SQL, we can also perform calculations as part of a query.
 
@@ -445,7 +457,7 @@ LEFT JOIN player_birthplaces
 USING (player_ids);
 ```
 
-<blockquote>Q8: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q9: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 67. Additional resources:
 - W3Schools, ["SQL Joins"](https://www.w3schools.com/sql/sql_join.asp)
@@ -483,13 +495,13 @@ FROM Indiana_Team_Locations;
 
 # Final questions
 
-<blockquote>Q9: Write an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Indiana. Test your query using DB Browser. Include code + comments.</blockquote>
+<blockquote>Q10: Write an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Indiana. Test your query using DB Browser. Include code + comments.</blockquote>
 
-<blockquote>Q10: How would you describe the affordances of relational databases to someone who hasn't been through these labs?</blockquote>
+<blockquote>Q11: How would you describe the affordances of relational databases to someone who hasn't been through these labs?</blockquote>
 
-<blockquote>Q11: What questions or thoughts do you have about building and interacting with relational databases?</blockquote>
+<blockquote>Q12: What questions or thoughts do you have about building and interacting with relational databases?</blockquote>
 
-Q12: Select one of the following SQL statements:
+Q13: Select one of the following SQL statements:
 - `AND/OR`
 - `ALTER TABLE`
 - `BETWEEN`
@@ -536,21 +548,23 @@ Q3: Write an SQL query to return the unique list of team names from the Team_Loc
 
 Q4: Write an SQL query to return the data from the Player_Birthplaces table, sorted in chronological order by birth year and reverse alphabetical order by country. What data does this query return? Test your query using DB Browser. Include code + comments.
 
-Q5: Write an SQL query to return the data from the Team_Locations table for teams located in states that start with the letter M. What data does this query return? Test your query using DB Browser. Include code + comments.
+Q5: Write an SQL query to return the data from the Player_Birthplaces table for players before 1985. What data does this query return? Test your query using DB Browser. Include code + comments.
 
-Q6: Write a query that gets average birth year for players in Latin America/Caribbean. What data does this query return? Test your query using DB Browser. Include code + comments.
+Q6: Write an SQL query to return the data from the Player_Birthplaces table for players born in cities that start with the letter “S”. What data does this query return? Test your query using DB Browser. Include code + comments.
 
-Q7: Write a query that gets average birth year for players born after a specific year. What data does this query return? Test your query using DB Browser. Include code + comments.
+Q7: Write a query that gets average birth year for players in Latin America/Caribbean. What data does this query return? Test your query using DB Browser. Include code + comments.
 
-Q8: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return?Test your query using DB Browser. Include code + comments.
+Q8: Write a query that gets average birth year for players born after a specific year. What data does this query return? Test your query using DB Browser. Include code + comments.
 
-Q9: Write an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Indiana. Test your query using DB Browser. Include code + comments.
+Q9: Write an SQL query that joins the Transactions and Team_Locations tables and returns all columns. What kind of join is this? What data does this query return?Test your query using DB Browser. Include code + comments.
 
-Q10: How would you describe the affordances of relational databases to someone who hasn't been through these labs?
+Q10: Write an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Indiana. Test your query using DB Browser. Include code + comments.
 
-Q11: What questions or thoughts do you have about building and interacting with relational database?
+Q11: How would you describe the affordances of relational databases to someone who hasn't been through these labs?
 
-Q12: Select one of the following SQL statements:
+Q12: What questions or thoughts do you have about building and interacting with relational database?
+
+Q13: Select one of the following SQL statements:
 - `AND/OR`
 - `ALTER TABLE`
 - `BETWEEN`
