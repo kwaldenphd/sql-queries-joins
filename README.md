@@ -1,7 +1,6 @@
 # SQL Queries and Joins
 
-<a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
-This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+<a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>This tutorial was written by Katherine Walden and is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 ## Lab Goals
 
@@ -14,6 +13,13 @@ By the end of this lab, students will be able to:
 - Understand the core concepts of database joins
 - Write basic JOIN operations in SQL syntax
 
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=80085ef5-e5ec-44a1-ac44-ae31012ed0ae">Lecture/live coding playlist</a></td>
+  </tr>
+  </table>
+
 ## Acknowledgements
 The author consulted the following resources when building this tutorial:
 - [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
@@ -24,6 +30,7 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
 
 # Table of Contents
 
+- [Lecture & Live Coding](#lecture--live-coding)
 - [Lab notebook template](#lab-notebook-template)
 - [Data](#data)
 - [SQL Syntax](#sql-syntax)
@@ -40,7 +47,31 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
 - [Additional Resources](#additional-resources)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
+# Lecture & Live Coding
+
+Throughout this lab, you will see a Panopto icon at the start of select sections.
+
+This icon indicates there is lecture/live coding asynchronous content that accompanies this section of the lab. 
+
+You can click the link in the figure caption to access these materials (ND users only).
+
+Example:
+
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=80085ef5-e5ec-44a1-ac44-ae31012ed0ae">Lecture/live coding playlist</a></td>
+  </tr>
+  </table>
+
 # Lab notebook template
+
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=878a40f7-71bb-4d7f-9809-ae310005db9a">Overview</a></td>
+  </tr>
+  </table>
 
 [Link to lab notebook template (Google Doc)](https://docs.google.com/document/d/1J6rWJ-KM4dHHKTX8t5veJZRsLpUrfoveY1Mh7L-U8ic/copy)
 - DB Browser screenshots are HIGHLY recommended.
@@ -64,38 +95,41 @@ If needed, you can download the relational database [from Google Drive](https://
 
 # SQL Syntax
 
-1. What is SQL? As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "Structured Query Language, or SQL (sometimes pronounced 'sequel'), is a powerful language used to interrogate and manipulate relational databases. It is not a general programming language that you can use to write an entire program."
+What is SQL? As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "Structured Query Language, or SQL (sometimes pronounced 'sequel'), is a powerful language used to interrogate and manipulate relational databases. It is not a general programming language that you can use to write an entire program."
 
-2. When working with relational database systems, we can use SQL to write queries.
-
-3. What are queries? As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "a query is a question or request for data. For example, “How many journals does our library subscribe to?” When we query a database, we can ask the same question using a common language called Structured Query Language or SQL in what is called a statement. Some of the most useful queries - the ones we are introducing in this first section - are used to return results from a table that match specific criteria."
+When working with relational database systems, we can use SQL to write queries. As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "a query is a question or request for data. For example, “How many journals does our library subscribe to?” When we query a database, we can ask the same question using a common language called Structured Query Language or SQL in what is called a statement. Some of the most useful queries - the ones we are introducing in this first section - are used to return results from a table that match specific criteria."
 
 ## DB Browser Setup
 
-4. In this lab, we'll be using DB Browser for SQLite (a program we installed in a previous lab) to run SQL statements and queries.
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=369821cf-7dcd-49c0-a516-ae3100068170">DB Browser Setup</a></td>
+  </tr>
+  </table>
+
+In this lab, we'll be using DB Browser for SQLite (a program we installed in a previous lab) to run SQL statements and queries.
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_4.jpg?raw=true" /></p>
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_5.jpg?raw=true" /></p>
 
-5. Open the DB Browser program and select the `Open Database` icon.
-
-6. Open the `.db` file you created in the previous lab (or downloaded at the start of this lab).
+Open the DB Browser program and select the `Open Database` icon. Open the `.db` file you created in the previous lab (or downloaded at the start of this lab).
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_6.jpg?raw=true" /></p>
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_7.jpg?raw=true" /></p>
 
-7. Click the `Execute SQL` tab. The top text-box on the left-hand pane in the program (immediately below `SQL 1`) is where we will type SQL statements.
+Click the `Execute SQL` tab. The top text-box on the left-hand pane in the program (immediately below `SQL 1`) is where we will type SQL statements.
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_8.jpg?raw=true" /></p>
 
-8. Once we start adding SQL syntax, we can run all (or a selection) using the single arrow icon (left of the two arrows, immediate right of print). 
+Once we start adding SQL syntax, we can run all (or a selection) using the single arrow icon (left of the two arrows, immediate right of print). 
 - We can use the other arrow (right of the two arrows) to run a single line.
 
 ## Comments
 
-9. We can add single-line comments to our SQL statements using a double dash `--`.
+We can add single-line comments to our SQL statements using a double dash `--`.
 
 ```SQL
 -- this is my single-line comment
@@ -103,17 +137,22 @@ If needed, you can download the relational database [from Google Drive](https://
 
 ## Selecting
 
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=157321b3-9c29-44df-984e-ae3100090781">Selecting</a></td>
+  </tr>
+  </table>
+
+The `SELECT` query selects a specific field (column) from a specific table. The semicolon `;` is required at the end of every SQL query.
+
 ```SQL
 -- sample syntax for select
 SELECT [field]
 FROM [table];
 ```
 
-10. The `SELECT` query selects a specific field (column) from a specific table.
-
-11. The semicolon `;` is required at the end of every SQL query.
-
-12. Adding multiple columns after `SELECT` will return data from multiple columns.
+Adding multiple columns after `SELECT` will return data from multiple columns.
 
 ```SQL
 -- sample syntax for selecting multiple fields
@@ -123,9 +162,7 @@ FROM [table];
 
 <blockquote>Q1: Write an SQL query to select the list of player ids and birthplace countries from the Player_Birthplaces table? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
-13. We might want to write a query to return all the unique values in a particular field.
-
-14. For example, selecting the entire `country` field in the `Player_Birthplaces` table would return many duplicate values.
+We might want to write a query to return all the unique values in a particular field. For example, selecting the entire `country` field in the `Player_Birthplaces` table would return many duplicate values.
 
 ```SQL
 -- sample syntax for selecting unique values
@@ -133,13 +170,20 @@ SELECT DISTINCT [field]
 FROM [table];
 ```
 
-15. `SELECT DISTINCT` returns a list of unique values.
+`SELECT DISTINCT` returns a list of unique values.
 
 <blockquote>Q2: Write an SQL query to return the unique list of player birthplace countries from the Player_Birthplaces table. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 ## Sorting
 
-16. We might also want to sort the results returned by a query.
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b09fcbc9-9ad7-4e41-b1cc-ae3100f7a94b">Sorting</a></td>
+  </tr>
+  </table>
+
+We might also want to sort the results returned by a query.
 
 ```SQL
 -- sample syntax that selects all values from a table and orders by specific file
@@ -148,13 +192,11 @@ FROM [table]
 ORDER BY [field] ASC;
 ```
 
-17. The `*` wildcard operator selects all the fields in a specific table.
-
-18. `ORDER BY` specifies a field to use in sorting the query results.
-
-19. `ASC` returns ascending results. `DESC` would return descending results.
+The `*` wildcard operator selects all the fields in a specific table. `ORDER BY` specifies a field to use in sorting the query results. `ASC` returns ascending results. `DESC` would return descending results.
 
 <blockquote>Q3: Write an SQL query to return the unique list of team names from the Team_Locations table, sorted in reverse alphabetical order. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
+
+We can also sort on multiple fields.
 
 ```SQL
 -- sample syntax that selects all values from a table and orders by two fields
@@ -163,15 +205,20 @@ FROM [table]
 ORDER BY [field_1] ASC, [field_2] DESC;
 ```
 
-20. We can also sort on multiple fields.
-
-21. In the query above, the `ORDER BY` statement sorts `[field_1]` first (ascending) and then sorts `[field_2]` (descending).
+In the query above, the `ORDER BY` statement sorts `[field_1]` first (ascending) and then sorts `[field_2]` (descending).
 
 <blockquote>Q4: Write an SQL query to return the data from the Player_Birthplaces table, sorted in chronological order by birth year and reverse alphabetical order by country. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 ## Filtering
 
-22. Sometimes we may only want to return values that fall within a specific range or based on a particular set of conditions.
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f8f38f59-49fa-4413-87ca-ae3100f9903d">Filtering</a></td>
+  </tr>
+  </table>
+
+Sometimes we may only want to return values that fall within a specific range or based on a particular set of conditions.
 
 ```SQL
 -- select all values where country = "DO"
@@ -180,11 +227,9 @@ FROM Player_Birthplaces
 WHERE country='DO';
 ```
 
-23. This query returns all columns from the `Player_Birthplaces` table where data in the `country` field is equal to `DO`.
+This query returns all columns from the `Player_Birthplaces` table where data in the `country` field is equal to `DO`. The data returned by this query includes all the records for players born in the Dominican Republic.
 
-24. The data returned by this query includes all the records for players born in the Dominican Republic.
-
-25. Other comparison operators in SQL include:
+Other comparison operators in SQL include:
 
 Operator | Description
 --- | ---
@@ -198,9 +243,9 @@ Operator | Description
 `LIKE` | Searches for a pattern based on similarity
 `IN` | Specifies multiple possible values for a column
 
-26. For more on operators  that can be used in a `WHERE` clause (from W3Schools [SQL Where Clause page](https://www.w3schools.com/sql/sql_where.asp)).
+For more on operators  that can be used in a `WHERE` clause (from W3Schools [SQL Where Clause page](https://www.w3schools.com/sql/sql_where.asp)).
 
-27. We can also use operators to specify a range for the `WHERE` clause.
+We can also use operators to specify a range for the `WHERE` clause.
 
 ```SQL
 -- select values where dob is greater than 1996
@@ -209,13 +254,9 @@ FROM Player_Birthplaces
 WHERE dob>1996;
 ```
 
-28. This query returns all columns from `Player_Birthplaces` where data in the `dob` field is greater than `1996`.
+This query returns all columns from `Player_Birthplaces` where data in the `dob` field is greater than `1996`. SQL query syntax requires single quotes around text values. Numeric fields do not need single quotes.
 
-29. SQL query syntax requires single quotes around text values. Numeric fields do not need single quotes.
-
-30. We can also write queries that test for or return values for multiple conditions, using SQL's logical operators. These are called subqueries.
-
-31. For example, what if we wanted to return all records for players born in the Dominican Republic, Venezuela, or Puerto Rico.
+We can also write queries that test for or return values for multiple conditions, using SQL's logical operators. These are called **subqueries**. For example, what if we wanted to return all records for players born in the Dominican Republic, Venezuela, or Puerto Rico.
 
 ```SQL
 -- select all values from table where country equals any of three values
@@ -224,7 +265,7 @@ FROM Player_Birthplaces
 WHERE (country = 'DO') OR (country = 'VE') OR (country = 'PR');
 ```
 
-32. Other SQL operators include:
+Other SQL operators include:
 
 Operator | Description
 --- | ---
@@ -245,7 +286,7 @@ Operator | Description
 
 ### Wildcard Operators
 
-33. SQL has a number of wildcard operators that (like regular expressions, or regex commands) can be useful to substitute one or more characters in a string.
+SQL has a number of wildcard operators that (like regular expressions, or regex commands) can be useful to substitute one or more characters in a string.
 
 Symbol | Description | Example
 --- | --- |---
@@ -255,7 +296,7 @@ Symbol | Description | Example
 `^` | Represents any character not in the brackets | `h[^oa]t` returns hit, but not hot and hat
 `-` | Represents a range of characters | `c[a-b]t` finds cat and cbt
 
-34. When using wildcard characters to search or match a string, we use the `LIKE` operator in combination with the `WHERE` clause.
+When using wildcard characters to search or match a string, we use the `LIKE` operator in combination with the `WHERE` clause.
 
 For example:
 ```SQL
@@ -267,31 +308,38 @@ WHERE FIELD LIKE 'WILDCARD EXPRESSION';
 
 <blockquote>Check out W3Schools <a href="https://www.w3schools.com/sql/sql_wildcards.asp">"SQL Wildcards"</a> for more on wildcard characters in SQL.</blockquote>
 
-35. We can use `WHERE` and `LIKE` in combination with wildcard operators to filter records based on string character patterns.
+We can use `WHERE` and `LIKE` in combination with wildcard operators to filter records based on string character patterns.
 
 <blockquote>Q6: Write an SQL query to return the data from the Player_Birthplaces table for players born in cities that start with the letter “S”. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
 ## Aggregating and Calculating
 
-36. SQL contains functions which allow you to make calculations on data in your database for reports. 
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2c6dd4d-2932-4849-87d9-ae3100ff6251">Aggregating & Calculating</a></td>
+  </tr>
+  </table>
 
-37. Some of the most common functions include:
+SQL contains functions which allow you to make calculations on data in your database for reports. 
+
+Some of the most common functions include:
 - `MAX`: returns the maximum value in a field
 - `MIN`: returns the minimum value in a field
 - `AVG`: returns the average value of a field
 - `COUNT`: counts the number of values in a field and returns the total
 - `SUM`: adds the values in a field and returns the sum
 
-38. Let's say we wanted to get the average birth year for players in our dataset.
+Let's say we wanted to get the average birth year for players in our dataset. We can use `AVG` in our query.
 
-39. We can use `AVG` in our query.
 ```SQL
 -- get average DoB from specific table
 SELECT AVG(DoB)
 FROM Player_Birthplaces;
 ```
 
-40. We could also get the average birth year grouped by birth country.
+We could also get the average birth year grouped by birth country.
+
 ```SQL
 -- get average DoB from specific table and group by another field
 SELECT AVG(DoB), Country
@@ -301,10 +349,11 @@ GROUP BY Country;
 
 <blockquote>Q7: Write a query that gets average birth year for players born in South America or the Caribbean (Region). What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
-41. We can filter the results of aggregate functions using the `HAVING` keyword.
+We can filter the results of aggregate functions using the `HAVING` keyword.
   * NOTE: The `HAVING` keyword has to be used in combination with `GROUP BY`.
 
-42. Let's say we only wanted to see the average birth year for players born after 1990.
+Let's say we only wanted to see the average birth year for players born after 1990.
+
 ```SQL
 -- get average DoB from specific table only for records that meet a specific condition
 SELECT AVG(DoB), Country
@@ -317,13 +366,9 @@ HAVING DoB > 1990;
 
 <blockquote>Q8: Write a query that gets average birth year for players born after a specific year. What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
-43. In SQL, we can also perform calculations as part of a query.
+In SQL, we can also perform calculations as part of a query. We can use expressions on a column or multiple columns to get new values during our query. The results of these calculations are known as **computed columns**.
 
-44. We can use expressions on a column or multiple columns to get new values during our query.
-
-45. The results of these calculations are known as computed columns.
-
-46. SQL's arithmetic operators include:
+SQL's arithmetic operators include:
 
 Operator | Description
 --- | ---
@@ -333,24 +378,28 @@ Operator | Description
 `/` | Divide
 `%` | Modulo
 
-47. For example, let's say we had temperature data in Fahrenheit and needed those values in Celsius, rounded to two decimal places.
+For example, let's say we had temperature data in Fahrenheit and needed those values in Celsius, rounded to two decimal places. We could make this conversion using SQL's arithmetic operators.
 
-48. We could make this conversion using SQL's arithmetic operators.
 ```SQL
 -- sample syntax for temperature conversion formula
 SELECT temp, round(5 * (temp_reading - 32) / 9, 2) as Celsius FROM Temp_Data WHERE quant = 'temp';
 ```
 
-49. Additional resources:
+Additional resources:
 - Library Carpentry's SQL tutorial, ["Aggregating & Calculating Values"](https://librarycarpentry.org/lc-sql/04-aggregating-calculating/index.html) 
 - Software Carpentry's Databases and SQL tutorial, ["Calculating New Values"](https://swcarpentry.github.io/sql-novice-survey/)
 - W3Schools' [SQL Tutorial](https://www.w3schools.com/sql/default.asp) pages for specific aggregating and calculating functions.
 
 ## Order of Execution
 
-50. SQL queries have an order of execution.
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fba7d1dd-46d5-492d-889e-ae31011d9560">Order of Execution</a></td>
+  </tr>
+  </table>
 
-51. SQL clauses are written in a fixed order:
+SQL clauses are written in a fixed order:
 <ol type="i">
 <li><code>SELECT</code></li>
 <li><code>FROM</code></li>
@@ -358,9 +407,7 @@ SELECT temp, round(5 * (temp_reading - 32) / 9, 2) as Celsius FROM Temp_Data WHE
 <li><code>ORDER BY</code></li>
 </ol>
 
-52. But the order in which we write these clauses is not the order in which SQL executes them.
-
-53. SQL's order of execution:
+But the order in which we write these clauses is not the order in which SQL executes them. SQL's order of execution:
 
 Order | Clause | Function
 --- | --- | ---
@@ -372,37 +419,38 @@ Order | Clause | Function
 6 | `ORDER BY` | Sorts the final data
 7 | `LIMIT` | Limits the returned data based on row count
 
-54. Why does order of execution matter?
-
-55. If we know the computational pipeline for how SQL executes a query, we can write more effecient and concise queries.
+Why does order of execution matter? If we know the computational pipeline for how SQL executes a query, we can write more effecient and concise queries.
 
 ## Joins
 
-56. The process of building a relational database in which you identify primary and foreign keys and build relationships across tables does not change the underlying data structure.
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=fba7d1dd-46d5-492d-889e-ae31011d9560">Joins</a></td>
+  </tr>
+  </table>
 
-57. We can accomplish this in SQL using `JOIN` functions.
+The process of building a relational database in which you identify primary and foreign keys and build relationships across tables does not change the underlying data structure. We can accomplish this in SQL using `JOIN` functions.
 
-58. What is a join?
-
-59. According to W3Schools'[SQL Joins page](https://www.w3schools.com/sql/sql_join.asp), "A JOIN clause is used to combine rows from two or more tables, based on a related column between them."
+According to W3Schools'[SQL Joins page](https://www.w3schools.com/sql/sql_join.asp), "A JOIN clause is used to combine rows from two or more tables, based on a related column between them."
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_3.jpg?raw=true" /></p>
 
 Image credit: W3 Schools, ["Different Types of SQL Joins"](https://www.w3schools.com/sql/sql_join.asp) (n.d.)
 
-60. There are four main types of `JOIN` functions.
+There are four main types of `JOIN` functions.
 - `(INNER) JOIN` returns matching records in both tables
 - `LEFT (OUTER) JOIN` returns all records from the left table and only matching records from the right table
 - `RIGHT (OUTER) JOIN` returns all records from the right table and only matching records from the left table
 - `FULL (OUTER) JOIN` returns all matching records from both the left and right tables
 
-61. We can express these `JOIN` functions programmatically in SQL.
+We can express these `JOIN` functions programmatically in SQL.
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/sql-queries-joins/blob/main/screenshots/Figure_2.png?raw=true"/></p>
 
 Image credit: C.L. Moffatt, ["Visual  Representations of SQL Joins"](https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins) *Code Project* (3 February 2009).
 
-62. Sample syntax for these examples:
+Sample syntax for these examples:
 
 ```SQL
 -- left join example
@@ -436,7 +484,7 @@ FULL OUTER JOIN [TABLE 2]
 ON table1.field = table2.field;
 ```
 
-63. Let's write a SQL statement that uses the `player_id` field to join the `Transactions` and `Player_Birthplaces` tables.
+Let's write a SQL statement that uses the `player_id` field to join the `Transactions` and `Player_Birthplaces` tables.
 
 ```SQL
 -- left join that joins matching records from player_birthplaces table
@@ -446,11 +494,10 @@ LEFT JOIN player_birthplaces
 ON combined_transactions.id_person = player_birthplaces.id_person;
 ```
 
-64. This query uses the `player_id` field and a left join to join the `Transactions` and `Player_Birthplaces` tables.
+This query uses the `player_id` field and a left join to join the `Transactions` and `Player_Birthplaces` tables. The query returns all columns in the left join query.
 
-65. The query returns all columns in the left join query.
+We could also write this query with the `USING` keyword.
 
-66. We could also write this query with the `USING` keyword.
 ```SQL
 -- alternate syntax for left join that joins matching records from player_birthplaces table
 SELECT *
@@ -461,49 +508,56 @@ USING (id_person);
 
 <blockquote>Q9: Write an SQL query that joins the Transactions and Team_Locations tables and returns all matching columns from the Transactions table. What kind of join is this? What data does this query return? Test your query using DB Browser. Include code + comments.</blockquote>
 
-67. Additional resources:
+Additional resources:
 - W3Schools, ["SQL Joins"](https://www.w3schools.com/sql/sql_join.asp)
 - SQL Joins Explained, ["Basic SQL Join Types"](http://www.sql-join.com/sql-join-types)
 - ChartIO Data School, ["SQL Join Types Explained Visually"](https://dataschool.com/how-to-teach-people-sql/sql-join-types-explained-visually/)
 
 ## Saving Queries
 
-68. Let's say you have a query or operation you perform frequently or on a regular basis.
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5eca72de-d303-4778-9fe0-ae310120d0da">Saving Queries</a></td>
+  </tr>
+  </table>
 
-69. Having to remember and type out the full query syntax would be cumbersome.
+Let's say you have a query or operation you perform frequently or on a regular basis. Having to remember and type out the full query syntax would be cumbersome. SQL gives you the option to save queries in the databases. These saved queries are called **Views**.
 
-70. SQL gives you the option to save queries in the databases.
-
-71. These saved queries are called Views.
-
-72. Let's say we wanted to create a view for a query that returns all data for teams located in Indiana.
+Let's say we wanted to create a view for a query that returns all data for players born in Puerto Rico.
 
 ```SQL
 -- syntax for saving a query
-CREATE VIEW Indiana_Team_Locations AS
+CREATE VIEW PR_Players AS
 SELECT *
-FROM Team_Locations
-WHERE state = 'IN';
+FROM Player_Birthplaces
+WHERE country = 'PR';
 ```
 
-73. Now we have the `Indiana_Team_Locations` view we can access without having to type out the full query.
+Now we have the `PR_Players` view we can access without having to type out the full query. To access the results using the newly-created view:
 
-74. To access the results using the newly-created view:
 ```SQL
 -- syntax for accessing a saved query
 SELECT * 
-FROM Indiana_Team_Locations;
+FROM PR_Players;
 ```
 
 # Final questions
 
-<blockquote>Q10: Write an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Indiana. Test your query using DB Browser. Include code + comments.</blockquote>
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5eca72de-d303-4778-9fe0-ae310120d0da">Final Lab Notebook Questions</a></td>
+  </tr>
+  </table>
 
-<blockquote>Q11: How would you describe the affordances of relational databases to someone who hasn't been through these labs?</blockquote>
+Q10: Write an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Indiana. Test your query using DB Browser. Include code + comments.
 
-<blockquote>Q12: What questions or thoughts do you have about building and interacting with relational databases?</blockquote>
+Q11: How would you describe the affordances of relational databases to someone who hasn't been through these labs?
 
-Q13: Select one of the following SQL statements:
+Q12: What questions or thoughts do you have about building and interacting with relational databases?
+
+Q13A: Select one of the following SQL statements:
 - `AND/OR`
 - `ALTER TABLE`
 - `BETWEEN`
@@ -520,9 +574,9 @@ Q13: Select one of the following SQL statements:
 - `SELECT`
 - `WHERE`
 
-Write a brief explanation for what the statement will do.
+Q13B: Write a brief explanation for what the statement will do.
 
-Include an example of how you would use the statement in an SQL query.
+Q13C: Include an example of how you would use the statement in an SQL query.
 
 Resources:
 - https://www.w3schools.com/sql/sql_quickref.asp
@@ -566,7 +620,7 @@ Q11: How would you describe the affordances of relational databases to someone w
 
 Q12: What questions or thoughts do you have about building and interacting with relational database?
 
-Q13: Select one of the following SQL statements:
+Q13A: Select one of the following SQL statements:
 - `AND/OR`
 - `ALTER TABLE`
 - `BETWEEN`
@@ -583,9 +637,9 @@ Q13: Select one of the following SQL statements:
 - `SELECT`
 - `WHERE`
 
-Write a brief explanation for what the statement will do.
+Q13B: Write a brief explanation for what the statement will do.
 
-Include an example of how you would use the statement in an SQL query.
+Q13C: Include an example of how you would use the statement in an SQL query.
 
 Resources:
 - https://www.w3schools.com/sql/sql_quickref.asp
